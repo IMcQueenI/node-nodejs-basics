@@ -1,5 +1,15 @@
+const fs = require('fs/promises');
+const path = require('path');
+
+const pathToFile = path.join(__dirname, "files", "fileToRead.txt");
+
 const read = async () => {
-    // Write your code here 
+  try {
+    const data = await fs.readFile(pathToFile);
+    console.log(data.toString());
+  } catch (error) {
+    console.log('FS operation failed');
+  }
 };
 
-await read();
+read();
