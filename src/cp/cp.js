@@ -1,6 +1,10 @@
+const path = require('path');
+const { fork } = require('child_process');
+
+const pathToFile = path.join(__dirname, "files", "script.js");
+
 const spawnChildProcess = async (args) => {
-    // Write your code here
+  fork(pathToFile, args);
 };
 
-// Put your arguments in function call to test this functionality
-spawnChildProcess( /* [someArgument1, someArgument2, ...] */);
+spawnChildProcess( [3123, 'gerghesh', 2434]);
